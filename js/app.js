@@ -9,6 +9,8 @@
         'ui.bootstrap',                 // Ui Bootstrap
         'ui.select',
         'ngSanitize',
+        'duScroll',
+        'ngMaterial',
     ])
 })();
 

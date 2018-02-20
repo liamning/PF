@@ -1,0 +1,111 @@
+﻿
+<div ng-controller="SampleChildCtrl as ctrl">
+
+    <div class="ng-view">
+
+        <div class="wrapper wrapper-content">
+            <div class="row">
+                <div class="col-lg-11">
+                    <form class="form-horizontal" name="userForm" autocomplete="off" novalidate>
+
+                        <div class="ibox">
+
+                            <div class="ibox-content">
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+
+                                        <div class="form-group">
+                                            <label class="col-lg-4 control-label">Sample No.</label>
+
+                                            <div class="col-lg-8">
+
+                                                <input type="text" class="form-control" ng-model="currentChild.ID" />
+
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="col-lg-6">
+
+                                        <div class="form-group">
+                                            <label class="col-lg-4 control-label">Relationship</label>
+                                            <div class="col-lg-8">
+
+
+                                                <ui-select ng-model="currentChild.Type"
+                                                           theme="bootstrap"
+                                                           reset-search-input="true"
+                                                           title="Please Select">
+                                                    <ui-select-match placeholder="Please Select">{{$select.selected.Desc}}</ui-select-match>
+                                                    <ui-select-choices repeat="item.Code as item in generalMaster['Relationship']  | filter: $select.search">
+                                                        <div>
+                                                            <div ng-bind-html="item.Desc | highlight: $select.search"></div>
+                                                        </div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group" ng-class="{ 'has-error' : userForm.SampleDate.$invalid && userForm.$submitted }">
+
+                                            <label class="col-lg-4 control-label">Sample Date</label>
+
+                                            <div class="col-lg-8">
+                                                <div class="input-group date">
+                                                    <input required class="form-control" name="SampleDate"
+                                                           ng-model="currentChild.Time" date-picker><a class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </a>
+                                                </div>
+                                                <p ng-show="userForm.SampleDate.$invalid && userForm.$submitted" class="help-block">Sample Date required.</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="text-right">
+                                    <a class="btn btn-danger" ng-click="confirm();"><i class="fa fa-close"></i>&nbsp; Cancel</a>
+                                    <a class="btn btn-success" ng-click="confirm();"><i class="fa fa-save"></i>&nbsp; Confirm</a>
+                                </div>
+
+
+
+
+                            </div>
+
+
+
+
+                        </div>
+                </div>
+
+
+                </form>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>

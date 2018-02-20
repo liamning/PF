@@ -1,0 +1,65 @@
+
+
+
+<div ng-controller="LoginCtrl as ctrl">
+
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <form class="form-horizontal" name="userForm" autocomplete="off" novalidate>
+
+                    <div class="ibox">
+
+                        <div class="ibox-content">
+                            <h2>
+                                Payroll & Attendance System
+                            </h2><br />
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">User ID</label>
+
+                                        <div class="col-lg-8">
+                                            <input ng-model="loginObj.UserID" class="form-control" />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Password</label>
+
+                                        <div class="col-lg-8">
+                                            <input ng-model="loginObj.Password" type="password" class="form-control" />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <button ng-click="login()" class="btn btn-success">Login</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+

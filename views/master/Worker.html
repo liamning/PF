@@ -1,0 +1,31 @@
+﻿
+<div ng-controller="WorkerCtrl as ctrl">
+
+    <div class="row border-bottom ng-scope top-button-panel">
+
+        <ul class="pull-left nav-path font-bold">
+            <li ng-repeat="item in viewsList track by $index" ng-class="{active: templateURL['url']==item.url }"><a ng-click="templateURL['url'] = item.url; templateURL.pageNo=$index;">{{item.name}}</a></li>
+        </ul>
+
+        <div class="btn-group pull-right m-t-sm" ng-show="templateURL.pageNo==0">
+            <a class="btn btn-danger" ng-click="delete()"><i class="fa fa-trash"></i>&nbsp;&nbsp;Delete</a>
+            <button class="btn btn-success" ng-click="save()"><i class="fa fa-save"></i>&nbsp;&nbsp;Save</button>
+        </div>
+
+    </div>
+
+
+    <div class="wrapper wrapper-content">
+        <div class="btn-group custom-btn-group">
+            <a class="btn btn-default {{btn1Class}}" ng-click="tabURL='views/master/Worker_PersonalInfo.html'; btn1Class='active';btn2Class='';">Personal Info</a>
+            <a class="btn btn-default {{btn2Class}}" ng-click="tabURL='views/master/Worker_Payroll.html'; btn1Class='';btn2Class='active';">Payroll</a>
+        </div>
+
+        <form class="form-horizontal" name="userForm" autocomplete="off" novalidate>
+            <div ng-include="tabURL?tabURL:'views/master/Worker_PersonalInfo.html'"></div>
+        </form>
+    </div>
+
+
+
+</div>

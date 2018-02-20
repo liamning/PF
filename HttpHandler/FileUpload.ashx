@@ -1,11 +1,12 @@
-﻿<%@ WebHandler Language="C#" Class="AjaxHandler" %>
+﻿<%@ WebHandler Language="C#" Class="FileUpload" %>
 
 using System;
 using System.Web;
 using System.Web.SessionState;
 using System.Collections.Generic;
+using System.IO;
 
-public class AjaxHandler : IHttpHandler, IRequiresSessionState
+public class FileUpload : IHttpHandler, IRequiresSessionState
 {
 
     string userID = "";
@@ -18,7 +19,7 @@ public class AjaxHandler : IHttpHandler, IRequiresSessionState
 
         if (session[GlobalSetting.SessionKey.LoginID] != null)
             userID = session[GlobalSetting.SessionKey.LoginID].ToString();
-         
+
         string result = "";
         Newtonsoft.Json.Converters.IsoDateTimeConverter IsoDateTimeConverter = new Newtonsoft.Json.Converters.IsoDateTimeConverter { DateTimeFormat = GlobalSetting.DateTimeFormat };
 
@@ -35,32 +36,27 @@ public class AjaxHandler : IHttpHandler, IRequiresSessionState
                     new Sample().Save(sampleInfo);
                     result = "{\"message\":\"Done.\"}";
                     break;
-                case "getSample":
-                    string SampleNo = request["SampleNo"];
-                    result = Newtonsoft.Json.JsonConvert.SerializeObject(new Sample().Get(SampleNo), IsoDateTimeConverter);
-                    break; 
 
-                case "getGeneralMasterList":
-                    string[] masterNames = Newtonsoft.Json.JsonConvert.DeserializeObject<string[]>(request["categories"]);
-                    result = Newtonsoft.Json.JsonConvert.SerializeObject(new GeneralMaster().GetGeneralMasterList(masterNames));
-                    break; 
-                case "refreshList":
-                    string table = request["Table"];
-                    string input = request["Input"];
-                    result = Newtonsoft.Json.JsonConvert.SerializeObject(new GeneralMaster().RefreshTableList(table, input), new Newtonsoft.Json.Converters.IsoDateTimeConverter { DateTimeFormat = GlobalSetting.DateTimeFormat });
-                    break; 
+                case "attendanceImport":
+                    HttpPostedFile file = request.Files["file"];
+                    string clientCode = request.Form["ClientCode"].ToString();
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        new AttendanceImport().Import(file.InputStream, clientCode);
+                    }
+                    break;
+
 
                 default:
                     break;
 
             }
-                 
-            //Log.Info(action);
+
         }
         catch (Exception e)
         {
             result = "{\"message\":\"" + e.Message.Replace("\r\n", "") + "\"}";
-            Log.Error(e.Message + "\r\n" + e.StackTrace); 
+            Log.Error(e.Message + "\r\n" + e.StackTrace);
         }
 
         response.Clear();

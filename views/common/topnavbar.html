@@ -6,7 +6,7 @@
         <ul class="nav navbar-top-links navbar-header">
             <li>
                 <a href="" style="font-size: 18px;line-height:60px; padding: 0px; font-weight:bold;">
-                    <span class="text-white">Web <span class="text-red">Template</span></span>
+                    <span class="text-white">Payroll & Attendance</span>
                 </a>
             </li>
         </ul>
@@ -18,14 +18,14 @@
             <li>
                 <a ng-click="showPullDown = !showPullDown;">
                     <span>
-                        <strong class="font-bold">{{loginID}} <b class="caret"></b></strong>
+                        <strong class="font-bold">{{LoginInfo.UserID}} <b class="caret"></b></strong>
                     </span>
                 </a>
                 <ul class="m-t-xs dropdown-menu" ng-show="showPullDown" style="display:block;">
-                    <li><a ui-sref="index.StaffProfile">User Profile</a></li>
-                    <li><a ui-sref="index.ResetPassword">Change Password</a></li>
+                    <li><a ui-sref="system.UserProfile">User Profile</a></li>
+                    <li><a ui-sref="system.ChangePassword">Change Password</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Logout</a></li>
+                    <li><a href="HttpHandler/LogOutHandler.ashx">Logout</a></li>
                 </ul>
             </li>
         </ul>

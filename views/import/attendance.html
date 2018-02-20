@@ -1,0 +1,81 @@
+
+<div ng-controller="AttendanceImportCtrl as ctrl">
+
+    <div class="row border-bottom ng-scope top-button-panel">
+
+        <ul class="pull-left nav-path font-bold">
+            <li ng-repeat="item in viewsList track by $index" ng-class="{active: templateURL['url']==item.url }"><a ng-click="templateURL['url'] = item.url; templateURL.pageNo=$index;">{{item.name}}</a></li>
+        </ul>
+
+        <div class="btn-group pull-right m-t-sm" ng-show="templateURL.pageNo==0">
+            <button class="btn btn-success" ng-click="import()"><i class="fa fa-send"></i>&nbsp;&nbsp;Submit</button>
+        </div>
+
+    </div>
+
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-lg-11">
+                <form class="form-horizontal" name="userForm" autocomplete="off" novalidate>
+
+                    <div class="ibox">
+
+                        <div class="ibox-content">
+
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Client Code</label>
+
+                                        <div class="col-lg-8">
+                                            <input class="form-control" ng-model="clientObj.ClientCode" readonly />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6">
+
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Client Name</label>
+
+                                        <div class="col-lg-8">
+                                            <input class="form-control" ng-model="clientObj.ClientName" readonly />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Template</label>
+
+                                        <div class="col-lg-8">
+                                            <input type="file" id="attendanceFile" class="form-control" />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <a class="btn btn-default" ui-sref="master.Client"><i class="fa fa-arrow-left"></i>&nbsp; Back to Client</a>
+
+                </form>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+</div>

@@ -13,44 +13,70 @@
 
             <li ng-class="{inactive: !$state.includes('master'), active: $state.includes('master')}">
                 <a>
-                    <span class="fa fa-cog"></span>
+                    <span class="fa fa-folder"></span>
                     <span class="sidebar-nav-item">Master</span>
                     <span class="fa arrow"></span>
                 </a>
 
                 <ul class="nav nav-second-level">
                     <li ui-sref-active="active">
-                        <a ui-sref="master.TItem"><span class="nav-label">TItem Master</span></a>
+                        <a ui-sref="master.TimeSlot"><span class="nav-label">Time Slot</span></a>
                     </li>
-
-
                     <li ui-sref-active="active">
-                        <a ui-sref="master.sample"><span class="nav-label">Sample Master</span></a>
+                        <a ui-sref="master.PayrollGroup"><span class="nav-label">PayrollGroup</span></a>
                     </li>
 
                     <li ui-sref-active="active">
-                        <a ui-sref="master.master3"><span class="nav-label">master3</span></a>
+                        <a ui-sref="master.Introducer"><span class="nav-label">Introducer</span></a>
                     </li>
+
+                    <li ui-sref-active="active">
+                        <a ui-sref="master.Client"><span class="nav-label">Client</span></a>
+                    </li>
+
+                    <li ui-sref-active="active">
+                        <a ui-sref="master.Worker"><span class="nav-label">Worker</span></a>
+                    </li>
+                     
                 </ul>
             </li>
 
 
             <li ng-class="{inactive: !$state.includes('entry'), active: $state.includes('entry')}">
                 <a>
-                    <span class="fa fa-cog"></span>
+                    <span class="fa fa-edit"></span>
                     <span class="sidebar-nav-item">Entry</span>
                     <span class="fa arrow"></span>
                 </a>
 
                 <ul class="nav nav-second-level">
                     <li ui-sref-active="active">
-                        <a ui-sref="entry.entry1"><span class="nav-label">Entry 1</span></a>
+                        <a ui-sref="inquiry.Inquiry"><span class="nav-label">Inquiry</span></a>
                     </li>
 
 
                     <li ui-sref-active="active">
                         <a ui-sref="entry.entry2"><span class="nav-label">Entry 2</span></a>
                     </li>
+                </ul>
+            </li>
+
+
+            <li ng-class="{inactive: !$state.includes('system'), active: $state.includes('system')}">
+                <a>
+                    <span class="fa fa-cog"></span>
+                    <span class="sidebar-nav-item">System</span>
+                    <span class="fa arrow"></span>
+                </a>
+
+                <ul class="nav nav-second-level">
+                    <li ui-sref-active="active">
+                        <a ui-sref="system.UserProfile"><span class="nav-label">User Profile</span></a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="system.ChangePassword"><span class="nav-label">Change Password</span></a>
+                    </li>
+                     
                 </ul>
             </li>
 

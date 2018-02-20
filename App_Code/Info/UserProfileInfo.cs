@@ -1,8 +1,8 @@
 using System;
 public class UserProfileInfo
 {
-	public string StaffNo { get; set; }
-	public string StaffName { get; set; }
+	public string UserID { get; set; }
+	public string UserName { get; set; }
 	public string Password { get; set; }
 	public string Role { get; set; }
 	public int Age { get; set; }
@@ -16,8 +16,8 @@ public class UserProfileInfo
 	public DateTime? LastUpdateDate { get; set; }
 	public class FieldName
 	{
-		public const string StaffNo = "StaffNo";
-		public const string StaffName = "StaffName";
+		public const string UserID = "UserID";
+		public const string UserName = "UserName";
 		public const string Password = "Password";
 		public const string Role = "Role";
 		public const string Age = "Age";

@@ -10334,7 +10334,7 @@ body.fixed-nav #wrapper #page-wrapper {
 }
 
 .top-button-panel {
-    /*padding: 10px;*/
+    padding: 10px;
     position: fixed;
     top: 60px;
     width: 100%;
@@ -10350,44 +10350,9 @@ body.fixed-nav #wrapper #page-wrapper {
 
 .nav-path {
     font-size: 14px;
+    line-height: 34px;
     padding-left: 10px;
-    margin-bottom: 0px;
-    margin-left: 10px;
 }
-
-
-ul.nav-path > li {
-    list-style: none;
-    display: inline-block;
-    padding: 0px;
-    height: 54px;
-    line-height: 54px;
-    margin-bottom: 0px;
-    transition: all 0s !important;
-}
-
-    ul.nav-path > li > a {
-        color: #999999;
-    }
-
-    ul.nav-path > li.active > a {
-        color: black;
-    }
-
-    ul.nav-path > li:before {
-        content: "/";
-        margin-left: 10px;
-        margin-right: 10px;
-        font-size: 18px;
-    }
-
-    ul.nav-path > li:first-child:before {
-        content: "";
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-
-
 
 .user-panel {
     position: absolute;
@@ -10498,33 +10463,19 @@ label {
         display: block;
     }
 
-li.inactive ul {
-    height: 0px;
-    overflow: hidden;
-}
-
-
-
-.sidebar-nav ul a {
-    padding: 12px 20px;
-    color: #aaa;
-    border-top: 1px solid rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.05) inset;
-    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
-}
-
-    .sidebar-nav ul a:hover, .sidebar-nav ul a:focus, .sidebar-nav ul a:active, .sidebar-nav ul li a.active {
-        color: #fff;
-        text-decoration: none;
-        background-color: #5C5C5C !important;
+    .sidebar-nav ul a {
+        padding: 12px 20px;
+        color: #aaa;
+        border-top: 1px solid rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.05) inset;
+        text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
     }
 
-
-    .sidebar-nav ul a:hover, .sidebar-nav ul a:focus, .sidebar-nav ul a:active, .sidebar-nav ul li a.active {
-        color: #fff;
-        text-decoration: none;
-        background-color: rgb(103, 60, 123) !important;
-    }
+        .sidebar-nav ul a:hover, .sidebar-nav ul a:focus, .sidebar-nav ul a:active, .sidebar-nav ul li a.active {
+            color: #fff;
+            text-decoration: none;
+            background-color: rgb(103, 60, 123) !important;
+        }
 
 .nav > li.active > a {
     color: #ffffff;
@@ -10563,6 +10514,72 @@ li.inactive ul {
 }
 
 
+.ui-select-bootstrap .ui-select-match-text span {
+    width: auto !important;
+}
+
+table .form-control {
+    border: 0px;
+    margin: 0px;
+    padding: 5px;
+    /*display:inline;*/
+    height: 29px;
+    background-color: transparent;
+}
+
+table .fa-edit, table .fa-trash {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    height: 29px;
+    background-color: transparent;
+    font-size: 2em;
+    margin-top: -1px;
+}
+
+table .fa-trash {
+    height: 25px;
+    margin-top: -2px;
+}
+
+table div.form-control {
+    padding: 0px;
+    outline-width: 0px;
+}
+
+table.inlineEditTable .form-control:focus {
+    background-color: #FFFFDD;
+    border: 1px solid gray;
+}
+
+table.inlineEditTable .btn-default-focus {
+    outline: none;
+    box-shadow: none;
+}
+
+table.inlineEditTable td {
+    padding: 3px !important;
+}
+
+.checkbox-inline {
+    padding-left: 0px;
+}
+
+.ibox-content {
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid solid;
+    border-width: 1px;
+}
+
+
+li.inactive ul {
+    height: 0px;
+    overflow: hidden;
+}
 
 
 
@@ -10598,7 +10615,7 @@ table.inlineEditTable > tbody > tr > td {
     padding: 3px;
 }
 
-table.table td.td-btn {
+table.inlineEditTable td.td-btn {
     cursor: pointer;
     padding: 9px 8px 7px 8px;
     text-align: center;
@@ -10608,30 +10625,6 @@ table.table td.td-btn {
         font-size: 18px;
     }
 
-
-
 .checkbox-inline {
     padding-left: 0px;
-}
- 
-.has-error .control-label {
-    color: #a94442;
-}
-
-.has-error .form-control, .has-error .form-control:focus {
-    border-color: #a94442;
-}
-
-
-.custom-btn-group .btn-default {
-    border: 0px;
-}
-
-.custom-btn-group .btn-default:hover, .custom-btn-group .btn-default:focus {
-    border: 0px;
-    margin: 0px;
-}
-
-.navbar-default {
-    background-color: #380052;
 }

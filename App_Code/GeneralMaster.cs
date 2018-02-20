@@ -21,9 +21,6 @@ public class GeneralMaster
         {
             switch (masterName)
             {
-                case "Relationship":
-                    dict.Add(masterName, this.getGeneralMaster(masterName));
-                    break;
                 //case "Role":
                 //    dict.Add(masterName, this.GetRoleList());
                 //    break;
@@ -45,9 +42,9 @@ public class GeneralMaster
                 //case "Unit":
                 //    dict.Add(masterName, new POManagement().GetUnitList());
                 //    break;
-                //default:
-                //    dict.Add(masterName, this.getGeneralMaster(masterName));
-                //    break;
+                default: 
+                    dict.Add(masterName, this.getGeneralMaster(masterName));
+                    break;
             }
         }
 
@@ -69,18 +66,30 @@ public class GeneralMaster
         {
             case "Sample":
                 return this.RefreshSampleList(input);
-            //case "Supplier":
-            //    return this.RefreshSupplierList(input);
-            //case "Staff":
-            //    return new StaffProfile().GetStaffNoList(input);
-            //case "SupplierGRN":
-            //    return new GRNHeader().GetGRNNoList(input);
-            //case "SuppInvNo":
-            //    return new GRNHeader().RefreshInvList(input);
-            //case "Role":
-            //    return new RoleFunction().GetRoleCodeList(input);
-            //case "PO":
-            //    return new POManagement().RefreshPOList(input); 
+            case "TimeSlot":
+                return new TimeSlot().GetTimeSlotCodeList(input);
+            case "Introducer":
+                return new Introducer().GetIntroducerCodeList(input);
+            case "Client":
+                return new Client().GetClientCodeList(input);
+            case "Worker":
+                return new Worker().GetWorkerIDList(input);
+            case "PayrollGroup":
+                return new PayrollGroup().GetPayrollGroupIDList(input);
+            case "UserProfile":
+                return new UserProfile().GetUserProfileList(input);
+                //case "Supplier":
+                //    return this.RefreshSupplierList(input);
+                //case "Staff":
+                //    return new StaffProfile().GetStaffNoList(input);
+                //case "SupplierGRN":
+                //    return new GRNHeader().GetGRNNoList(input);
+                //case "SuppInvNo":
+                //    return new GRNHeader().RefreshInvList(input);
+                //case "Role":
+                //    return new RoleFunction().GetRoleCodeList(input);
+                //case "PO":
+                //    return new POManagement().RefreshPOList(input); 
         }
 
         return null;
@@ -97,7 +106,7 @@ public class GeneralMaster
         var obj = (List<GeneralCodeDesc>)db.Query<GeneralCodeDesc>(query, new { SampleNo = SampleNo });
         db.Close();
         return obj;
-    }
+    } 
 
     private List<GeneralCodeDesc> getGeneralMaster(string category)
     {

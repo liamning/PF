@@ -1,16 +1,16 @@
 ﻿
-<div ng-controller="SampleCtrl as ctrl">
+<div ng-controller="InquiryCtrl as ctrl">
 
     <div class="row border-bottom ng-scope top-button-panel">
 
         <ul class="pull-left nav-path font-bold">
-            <li ng-repeat="item in viewsList track by $index" ng-class="{active: templateURL['url']==item.url }"><a ng-click="templateURL['url'] = item.url; templateURL.pageNo=$index;">{{item.name}}</a></li> 
+            <li ng-repeat="item in viewsList track by $index" ng-class="{active: templateURL['url']==item.url }"><a ng-click="templateURL['url'] = item.url; templateURL.pageNo=$index;refresh();">{{item.name}}</a></li>
         </ul>
 
-        <div class="btn-group pull-right m-t-sm" ng-show="templateURL.pageNo==0">
+        <!--<div class="btn-group pull-right m-t-sm" ng-show="templateURL.pageNo==0">
             <a class="btn btn-danger" ng-click="delete()"><i class="fa fa-trash"></i>&nbsp;&nbsp;Delete</a>
             <button class="btn btn-success" ng-click="save()"><i class="fa fa-save"></i>&nbsp;&nbsp;Save</button>
-        </div>
+        </div>-->
     </div>
 
     <div ng-include="templateURL['url']"></div>

@@ -1,0 +1,359 @@
+﻿
+<div class="row">
+    <div class="col-lg-11">
+        <!--<form class="form-horizontal" name="userForm" autocomplete="off" novalidate>-->
+
+            <div class="ibox">
+
+                <div class="ibox-content">
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group" ng-class="{ 'has-error' : userForm.WorkerID.$invalid && submitted  }">
+                                <label class="col-lg-4 control-label">員工編號</label>
+
+                                <div class="col-lg-8">
+
+                                    <ui-select ng-model="workerObj.WorkerID"
+                                               name="WorkerID"
+                                               theme="bootstrap"
+                                               required
+                                               on-select="ui_select_change('Worker'); workerIDChange();"
+                                               reset-search-input="false"
+                                               title="Please Select">
+                                        <ui-select-match placeholder="Please Select">{{$select.selected.Code}}</ui-select-match>
+                                        <ui-select-choices repeat="item.Code as item in refresh_ui_select_list['Worker'] track by $index"
+                                                           refresh="refresh_ui_select('Worker', $select.search, 0, 1)"
+                                                           refresh-delay="0">
+                                            <div>
+                                                <span ng-bind-html="item.Code | highlight: $select.search"></span>
+                                            </div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <p ng-show="userForm.WorkerID.$invalid && submitted" class="help-block">請輸入員工編號.</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">中文姓名</label>
+
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" name="ChineseName" ng-model="workerObj.ChineseName" />
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">英文姓名</label>
+
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" name="EnglishName" ng-model="workerObj.EnglishName" />
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Introducer</label>
+
+                                <div class="col-lg-8">
+
+                                    <ui-select ng-model="workerObj.Introducer"
+                                               name="Introducer"
+                                               theme="bootstrap"
+                                               required
+                                               on-select="ui_select_change('Introducer'); "
+                                               reset-search-input="false"
+                                               title="Please Select">
+                                        <ui-select-match placeholder="Please Select">{{$select.selected.Code}}</ui-select-match>
+                                        <ui-select-choices repeat="item.Code as item in refresh_ui_select_list['Introducer'] track by $index"
+                                                           refresh="refresh_ui_select('Introducer', $select.search, 0)"
+                                                           refresh-delay="0">
+                                            <div>
+                                                <span ng-bind-html="item.Code | highlight: $select.search"></span>
+                                            </div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Address</label>
+
+                                <div class="col-lg-8">
+                                    <textarea type="text" required class="form-control" name="Address" ng-model="workerObj.Address"></textarea>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">HK ID</label>
+
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+
+                                            <input type="text" required class="form-control" name="Address" maxlength="2" ng-model="workerObj.HKID1" />
+                                        </div>
+                                        <div class="col-lg-6">
+
+                                            <input type="text" required class="form-control" maxlength="10" name="HKID2" ng-model="workerObj.HKID2" />
+                                        </div>
+                                        <div class="col-lg-3">
+
+                                            <input type="text" required class="form-control" maxlength="1" name="HKID3" ng-model="workerObj.HKID3" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Date Of Birth</label>
+
+                                <div class="col-lg-8"> 
+                                    <div class="input-group date">
+                                        <input required class="form-control" name="DOB"
+                                               ng-model="workerObj.DOB" date-picker><a class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Age</label>
+
+                                <div class="col-lg-8">
+                                    <input type="text" readonly class="form-control"  ng-model="workerObj.Age" />
+                                </div>
+                            </div>
+
+                        </div> 
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Gender</label>
+
+                                <div class="col-lg-8"> 
+                                    <label class="checkbox-inline">
+                                        <input icheck type="radio" name="SampleRadioButton" ng-model="workerObj.Gender" value="M"> Male
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input icheck type="radio" name="SampleRadioButton" ng-model="workerObj.Gender" value="F"> Female
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Phone No.</label>
+
+                                <div class="col-lg-8">
+                                    <input class="form-control" ng-model="workerObj.PhoneNo" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Payroll Group</label>
+
+                                <div class="col-lg-8"> 
+                                    <ui-select ng-model="workerObj.PayrollGroup"
+                                               name="PayrollGroup"
+                                               theme="bootstrap"
+                                               required
+                                               on-select="ui_select_change('PayrollGroup'); "
+                                               reset-search-input="false"
+                                               title="Please Select">
+                                        <ui-select-match placeholder="Please Select">{{$select.selected.Code}}</ui-select-match>
+                                        <ui-select-choices repeat="item.Code as item in refresh_ui_select_list['PayrollGroup'] track by $index"
+                                                           refresh="refresh_ui_select('PayrollGroup', $select.search, 0)"
+                                                           refresh-delay="0">
+                                            <div>
+                                                <span ng-bind-html="item.Code | highlight: $select.search"></span>
+                                            </div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Payroll Remarks</label>
+
+                                <div class="col-lg-8">
+                                    <input class="form-control" ng-model="workerObj.PayrollRemarks" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Bank Code</label>
+
+                                <div class="col-lg-8">
+                                    <input class="form-control" ng-model="workerObj.BankCode" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">BankName</label>
+
+                                <div class="col-lg-8">
+                                    <input class="form-control" ng-model="workerObj.BankName" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label"></label>
+
+                                <div class="col-lg-8"> 
+                                    <label class="checkbox-inline">
+                                        <input icheck type="checkbox" name="MPFOption" ng-model="workerObj.MPFOption" value="F">&nbsp; 需要MPF?
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">DateJoin</label>
+
+                                <div class="col-lg-8"> 
+
+                                    <div class="input-group date">
+                                        <input required class="form-control" name="DateJoin"
+                                               ng-model="workerObj.DateJoin" date-picker><a class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">WorkArea</label>
+
+                                <div class="col-lg-8">
+                                    <input class="form-control" ng-model="workerObj.WorkArea" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Remarks</label>
+
+                                <div class="col-lg-8">
+                                    <textarea class="form-control" ng-model="workerObj.Remarks"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+        <!--</form>-->
+    </div>
+
+</div>
+
