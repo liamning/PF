@@ -10370,6 +10370,18 @@ ul.nav-path > li {
         color: #999999;
     }
 
+        ul.nav-path > li > a:hover {
+            /*padding-top: 4px;
+            height: 50px;*/
+            text-decoration: underline;
+        }
+
+        ul.nav-path > li > a:active {
+            /*padding-top: 4px;
+            height: 50px;*/
+            text-decoration: underline;
+        }
+
     ul.nav-path > li.active > a {
         color: black;
     }
@@ -10503,6 +10515,14 @@ li.inactive ul {
     overflow: hidden;
 }
 
+li.active ul {
+    height: auto;
+    /*-webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;*/
+}
+
 
 
 .sidebar-nav ul a {
@@ -10513,18 +10533,26 @@ li.inactive ul {
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
 }
 
-    .sidebar-nav ul a:hover, .sidebar-nav ul a:focus, .sidebar-nav ul a:active, .sidebar-nav ul li a.active {
-        color: #fff;
-        text-decoration: none;
-        background-color: #5C5C5C !important;
+    .sidebar-nav ul a:active {
+        padding: 14px 18px 10px 22px !important;
     }
 
+.sidebar-nav ul ul a:active {
+    padding: 14px 0px 10px 32px !important;
+}
 
-    .sidebar-nav ul a:hover, .sidebar-nav ul a:focus, .sidebar-nav ul a:active, .sidebar-nav ul li a.active {
-        color: #fff;
-        text-decoration: none;
-        background-color: rgb(103, 60, 123) !important;
-    }
+.sidebar-nav ul a:hover, .sidebar-nav ul a:focus, .sidebar-nav ul a:active, .sidebar-nav ul li a.active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #5C5C5C !important;
+}
+
+
+.sidebar-nav ul a:hover, .sidebar-nav ul a:focus, .sidebar-nav ul a:active, .sidebar-nav ul li a.active {
+    color: #fff;
+    text-decoration: none;
+    background-color: rgb(103, 60, 123) !important;
+}
 
 .nav > li.active > a {
     color: #ffffff;
@@ -10604,16 +10632,16 @@ table.table td.td-btn {
     text-align: center;
 }
 
-    table.inlineEditTable td.td-btn span {
-        font-size: 18px;
-    }
+table.inlineEditTable td.td-btn span {
+    font-size: 18px;
+}
 
 
 
 .checkbox-inline {
     padding-left: 0px;
 }
- 
+
 .has-error .control-label {
     color: #a94442;
 }
@@ -10627,10 +10655,10 @@ table.table td.td-btn {
     border: 0px;
 }
 
-.custom-btn-group .btn-default:hover, .custom-btn-group .btn-default:focus {
-    border: 0px;
-    margin: 0px;
-}
+    .custom-btn-group .btn-default:hover, .custom-btn-group .btn-default:focus {
+        border: 0px;
+        margin: 0px;
+    }
 
 .navbar-default {
     background-color: #380052;
