@@ -1,0 +1,61 @@
+﻿<nav class="navbar-default navbar-static-side sidebar-nav" role="navigation">
+    <div class="sidebar-collapse">
+
+        <ul side-navigation class="nav metismenu" id="side-menu">
+
+            <li ui-sref-active="active">
+                <a ui-sref="index.main">
+                    <span class="fa fa-home"></span>
+                    <span class="sidebar-nav-item">Home</span>
+                </a>
+            </li>
+
+
+            <li ng-class="{inactive: !$state.includes('master'), active: $state.includes('master')}">
+                <a>
+                    <span class="fa fa-cog"></span>
+                    <span class="sidebar-nav-item">Master</span>
+                    <span class="fa arrow"></span>
+                </a>
+
+                <ul class="nav nav-second-level">
+                    <li ui-sref-active="active">
+                        <a ui-sref="master.TItem"><span class="nav-label">TItem Master</span></a>
+                    </li>
+
+
+                    <li ui-sref-active="active">
+                        <a ui-sref="master.sample"><span class="nav-label">Sample Master</span></a>
+                    </li>
+
+                    <li ui-sref-active="active">
+                        <a ui-sref="master.master3"><span class="nav-label">master3</span></a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li ng-class="{inactive: !$state.includes('entry'), active: $state.includes('entry')}">
+                <a>
+                    <span class="fa fa-cog"></span>
+                    <span class="sidebar-nav-item">Entry</span>
+                    <span class="fa arrow"></span>
+                </a>
+
+                <ul class="nav nav-second-level">
+                    <li ui-sref-active="active">
+                        <a ui-sref="entry.entry1"><span class="nav-label">Entry 1</span></a>
+                    </li>
+
+
+                    <li ui-sref-active="active">
+                        <a ui-sref="entry.entry2"><span class="nav-label">Entry 2</span></a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+
+
+    </div>
+</nav>

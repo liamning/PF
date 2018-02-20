@@ -1,0 +1,63 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul side-navigation class="nav metismenu" id="side-menu">
+
+            <li ng-class="{active: $state.includes('minor')}">
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">DASHBOARD</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('dashboards')}">
+                    <li ui-sref-active="active"><a ui-sref="index.main">DASHBOARD v.1</a></li>
+                    <li ui-sref-active="active"><a ui-sref="index.minor">DASHBOARD v.2</a></li>
+                    <li ui-sref-active="active"><a ui-sref="index.sample">DASHBOARD v.3</a></li>
+                </ul>
+            </li>
+
+            <li ui-sref-active="active">
+                <a ui-sref="index.main" style="padding-top: 20px;"><i class="fa fa-home"></i> <span class="nav-label">主頁</span> </a>
+            </li>
+
+
+            <li ng-class="{active: $state.includes('minor')}">
+                <a href=""><i class="fa fa-th-large"></i> <span class="nav-label">分店(採購)</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li ui-sref-active="active">
+                        <a ui-sref="index.minor"> <span class="nav-label">請購單申請</span></a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="index.sample"> <span class="nav-label">供應商收貨確認</span></a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li>
+                <a>
+                    <span class="fa fa-cog"></span>
+                    <span class="sidebar-nav-item">Master</span>
+                    <span class="fa arrow"></span>
+                </a>
+
+                <ul class="nav nav-second-level">
+                    <li ui-sref-active="active">
+                        <a ui-sref="index.minor"><span class="nav-label">TItem Master</span></a>
+                    </li>
+
+
+                    <li ui-sref-active="active">
+                        <a ui-sref="index.sample"><span class="nav-label">Sample Master</span></a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li ui-sref-active="active">
+                <a ui-sref="index.minor2">
+                    <span class="fa fa-area-chart"></span>
+                    <span class="sidebar-nav-item">Report</span>
+                </a>
+            </li>
+
+        </ul>
+
+
+    </div>
+</nav>
