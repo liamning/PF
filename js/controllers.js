@@ -1033,6 +1033,96 @@ function InquiryCtrl($scope, $http, $document, $timeout, $rootScope) {
     }
 }
 
+function HourlyRateMappingCtrl($scope, $http, $document, $timeout, $rootScope) {
+
+    var vm = this;
+
+    //object initialization
+    (function () {
+        $scope.hourlyRateMapping = [];
+
+        $scope.editMode = [];
+
+        $scope.templateURL = {
+            name: "Hourly Rate Mapping",
+            url: '',
+            pageNo: 0
+        };
+
+        $scope.viewsList = [];
+        $scope.viewsList[$scope.templateURL.pageNo] = {
+            name: $scope.templateURL.name,
+            url: $scope.templateURL.url
+        }; 
+
+
+        $scope.getGeneralMasterList(["Gender", "YN", "Session"]);
+    })();
+
+    $scope.refresh = function () {
+
+        for (var i = 0, item; item = $scope.criterias[i]; i++) {
+            if (item.table && item.value)
+                $scope.refresh_ui_select(item.table, item.value, 0);
+        }
+    };
+
+    $scope.save = function () {
+
+        $scope.postToServer({
+            data: [{
+                action: "saveHourlyRateMapping",
+                HourlyRateMapping: $scope.hourlyRateMapping,
+            }],
+            callback: function (response) {
+                var result = response['saveHourlyRateMapping'];
+                alert(result.message);
+                 
+
+            }
+        });
+
+    }
+    $scope.get = function () {
+       
+        $scope.postToServer({
+            data: [{
+                action: "getHourlyRateMapping",  
+            }],
+            callback: function (response) { 
+                console.log(response['getHourlyRateMapping']);
+
+                var result = response['getHourlyRateMapping']; 
+                if (result && result.length) {
+                    $scope.hourlyRateMapping = result;
+                }
+                
+            }
+        });
+
+
+    }
+
+    //event 
+    $scope.addChild = function () {
+        if (!$scope.hourlyRateMapping)
+            $scope.hourlyRateMapping = [];
+        $scope.hourlyRateMapping.push({
+            StoreCode: ' ',
+            Gender: 'Male'
+        });
+
+    }
+     
+    $scope.removeChild = function (child, $index) {
+        $scope.hourlyRateMapping.splice($index, 1); 
+    }
+
+    $scope.get();
+}
+
+
+
 angular
     .module('inspinia')
     .factory('responseObserver', function responseObserver($q, $window) {
@@ -1063,3 +1153,4 @@ angular
     .controller('UserProfileCtrl', UserProfileCtrl)
     .controller('ChangePasswordCtrl', ChangePasswordCtrl)
     .controller('InquiryCtrl', InquiryCtrl) 
+    .controller('HourlyRateMappingCtrl', HourlyRateMappingCtrl) 

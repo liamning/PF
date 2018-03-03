@@ -180,6 +180,17 @@ public class BatchHandler : IHttpHandler, IRequiresSessionState
                         result = new Inquiry().View_Search(filters, view);
                         break;
 
+                            //Hourly Rate 
+                    case "saveHourlyRateMapping":
+                        string HourlyRateMappingString = dataDict["HourlyRateMapping"].ToString();
+                        var hourlyRateMapping = Newtonsoft.Json.JsonConvert.DeserializeObject<List<HourlyRateMappingInfo>>(HourlyRateMappingString, IsoDateTimeConverter);
+                        new HourlyRateMapping().Save(hourlyRateMapping);
+                        result = "{\"message\":\"Done.\"}";
+                        break;
+                    case "getHourlyRateMapping":  
+                        result = Newtonsoft.Json.JsonConvert.SerializeObject(new HourlyRateMapping().Get(), IsoDateTimeConverter);
+                        break;
+
                     default:
                         break;
 

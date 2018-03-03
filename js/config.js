@@ -62,6 +62,19 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             url: "/TimeSlot",
             templateUrl: "views/master/TimeSlot.html",
         })
+        .state('master.HourlyRateMapping', {
+            url: "/HourlyRateMapping",
+            templateUrl: "views/master/HourlyRateMapping.html",
+            data: { pageTitle: 'Example view' }, resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['css/plugins/iCheck/custom.css', 'js/plugins/iCheck/icheck.min.js']
+                        }
+                    ]);
+                }
+            }
+        })
         .state('master.PayrollGroup', {
             url: "/PayrollGroup",
             templateUrl: "views/master/PayrollGroup.html",
